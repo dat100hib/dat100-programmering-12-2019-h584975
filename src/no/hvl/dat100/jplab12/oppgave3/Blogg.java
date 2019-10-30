@@ -5,37 +5,76 @@ import no.hvl.dat100.jplab12.oppgave1.*;
 
 public class Blogg {
 
-	// TODO: objektvariable 
+	Innlegg[] innleggtabell;
+	int nesteledig;
 
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		
+		this.innleggtabell = new Innlegg[20];
+		
 	}
 
 	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		
+		this.innleggtabell = new Innlegg[lengde];
+		
 	}
 
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		
+		int antall = 0;
+		
+		for (int i = 0; i < this.innleggtabell.length; i++) {
+			if (this.innleggtabell[i] != null) {
+				antall ++;
+			}	
+		}
+		
+		return antall;
 	}
 	
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		
+		Innlegg[] samling = this.innleggtabell;
+		
+		return samling;
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		int indeks = -1;
+		
+		for (int i = 0; i < this.innleggtabell.length; i++) {
+			if (innleggtabell[i].erLik(innlegg)) {
+				indeks = i;
+			}
+		}
+		
+		return indeks;
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+		
+		boolean finnes = false;
+		
+		for (int i = 0; i < this.innleggtabell.length; i++) {
+			if (innleggtabell[i].erLik(innlegg)) {
+				finnes = true;
+			}
+		}
+		
+		return finnes;
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
+		
+		boolean ledig = false;
+		
+		if (getAntall() < this.innleggtabell.length) {
+			ledig = true;
+		}
 
+		return ledig;
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
