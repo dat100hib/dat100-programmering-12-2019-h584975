@@ -40,7 +40,7 @@ public class Tekst extends Innlegg {
 	@Override
 	public String toString() {
 		
-		String output = "TEKST\n" + super.toString() + "\n" + this.tekst + "\n";
+		String output = this.getClass().getSimpleName().toUpperCase() + super.toString() + "\n" + this.tekst + "\n";
 		
 		return output;
 	}
