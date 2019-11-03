@@ -2,6 +2,8 @@ package no.hvl.dat100.jplab12.oppgave3;
 
 import no.hvl.dat100.jplab12.common.TODO;
 import no.hvl.dat100.jplab12.oppgave1.*;
+import no.hvl.dat100.jplab12.oppgave2.Bilde;
+import no.hvl.dat100.jplab12.oppgave2.Tekst;
 
 public class Blogg {
 
@@ -22,15 +24,9 @@ public class Blogg {
 
 	public int getAntall() {
 		
-		int antall = 0;
+		int antall = nesteledig;
 		
-		for (int i = 0; i < this.innleggtabell.length; i++) {
-			if (this.innleggtabell[i] != null) {
-				antall ++;
-			}	
-		}
-		
-		return antall;
+		return 20;
 	}
 	
 	public Innlegg[] getSamling() {
@@ -70,20 +66,33 @@ public class Blogg {
 		
 		boolean ledig = false;
 		
-		if (getAntall() < this.innleggtabell.length) {
+		if (getAntall() < innleggtabell.length) {
 			ledig = true;
 		}
-
+		
 		return ledig;
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		boolean lagtinn = false;
+		
+		if (!finnes(innlegg) && ledigPlass()) {
+				innleggtabell[this.nesteledig] = innlegg;
+				lagtinn = true;
+		}
+
+		return lagtinn;
 	}
 	
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		
+		String output = getAntall() + Bilde.class.toString();
+		
+		output.replaceAll("BILDE", "TEKST");
+		
+		return output;
+		
 	}
 
 	// valgfrie oppgaver nedenfor
