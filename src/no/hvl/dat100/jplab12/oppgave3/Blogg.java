@@ -105,18 +105,40 @@ public class Blogg {
 	// valgfrie oppgaver nedenfor
 	
 	public void utvid() {
-		throw new UnsupportedOperationException(TODO.method());
+		
+		int antall = 2 * getAntall();
+		Innlegg[] utvidetTabell = new Innlegg[antall];
+		
+		for (int i = 0; i < getAntall(); i++) {
+			utvidetTabell[i] = this.innleggtabell[i];
+		}
+		
+		this.innleggtabell = utvidetTabell;
 	}
 	
 	public boolean leggTilUtvid(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		boolean lagtTil = leggTil(innlegg);
 		
+		if (!lagtTil) {
+			utvid();
+			lagtTil = leggTil(innlegg);
+		}
+		
+		return lagtTil;
 	}
 	
 	public boolean slett(Innlegg innlegg) {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		boolean slettet = false;
+		
+		if (finnes(innlegg)) {
+			this.innleggtabell[finnInnlegg(innlegg)] = null;
+			slettet = true;
+			this.nesteledig -= 1;
+		}
+		
+		return slettet;
 	}
 	
 	public int[] search(String keyword) {

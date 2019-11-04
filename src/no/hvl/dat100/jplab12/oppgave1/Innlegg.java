@@ -94,9 +94,9 @@ public abstract class Innlegg {
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
 		
-		String h2 = "<h2>" + this.bruker + "@" + this.dato + " [" + this.likes + "]" + "<h2>\n";
-		String p1 = "<p>DAT100 Oppgave 6<p>\n";
+		String h2 = "\t\t<h2>" + this.bruker + "@" + this.dato + " [" + this.likes + "]" + "<h2>\n";
 		
+		return h2;
 				
 	}
 }

@@ -42,8 +42,11 @@ public class Bilde extends Tekst {
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
+			
+		String url = "\t\t<iframe src=" + '"' + this.url + '"' + "/iframe\n";
 		
-		throw new UnsupportedOperationException(TODO.method());
-				
+		String output = super.toHTML() + url;
+		
+		return output;		
 	}
 }
