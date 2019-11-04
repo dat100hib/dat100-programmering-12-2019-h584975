@@ -7,7 +7,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		Blogg samling = new Blogg();
+		Blogg samling = new Blogg(6);
 		
 		Tekst test = new Tekst(1,"Oliver","2019","HEI");
 		
@@ -18,6 +18,7 @@ public class Test {
 		samling.leggTil(test);
 		
 		System.out.println(samling.getAntall());
+		System.out.println(samling.ledigPlass());
 		
 	}
 

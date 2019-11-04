@@ -45,6 +45,7 @@ public class Blogg {
 		for (int i = 0; i < this.innleggtabell.length; i++) {
 			if (innleggtabell[i].erLik(innlegg)) {
 				indeks = i;
+				i = this.innleggtabell.length;
 			}
 		}
 		
@@ -95,7 +96,7 @@ public class Blogg {
 		
 		int indeks = getAntall();
 		
-		String output = "";
+		String output = indeks + "\n";
 		
 		for (int i = 0; i < indeks; i++) {
 			output += this.innleggtabell[i].toString();
