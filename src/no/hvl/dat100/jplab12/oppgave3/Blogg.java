@@ -13,12 +13,14 @@ public class Blogg {
 	public Blogg() {
 		
 		this.innleggtabell = new Innlegg[20];
+		this.nesteledig = 0;
 		
 	}
 
 	public Blogg(int lengde) {
 		
 		this.innleggtabell = new Innlegg[lengde];
+		this.nesteledig = 0;
 		
 	}
 
@@ -26,7 +28,7 @@ public class Blogg {
 		
 		int antall = nesteledig;
 		
-		return 20;
+		return antall;
 	}
 	
 	public Innlegg[] getSamling() {
@@ -56,6 +58,7 @@ public class Blogg {
 		for (int i = 0; i < this.innleggtabell.length; i++) {
 			if (innleggtabell[i].erLik(innlegg)) {
 				finnes = true;
+				i = this.innleggtabell.length;
 			}
 		}
 		
@@ -66,7 +69,7 @@ public class Blogg {
 		
 		boolean ledig = false;
 		
-		if (getAntall() < innleggtabell.length) {
+		if (getAntall() < this.innleggtabell.length) {
 			ledig = true;
 		}
 		
@@ -75,11 +78,14 @@ public class Blogg {
 	
 	public boolean leggTil(Innlegg innlegg) {
 
+		int nesteledig = getAntall();
+		
 		boolean lagtinn = false;
 		
-		if (!finnes(innlegg) && ledigPlass()) {
-				innleggtabell[this.nesteledig] = innlegg;
-				lagtinn = true;
+		if (ledigPlass()) {
+			innleggtabell[nesteledig] = innlegg;
+			lagtinn = true;
+			this.nesteledig = nesteledig + 1;
 		}
 
 		return lagtinn;
@@ -87,12 +93,15 @@ public class Blogg {
 	
 	public String toString() {
 		
-		String output = getAntall() + Bilde.class.toString();
+		int indeks = getAntall();
 		
-		output.replaceAll("BILDE", "TEKST");
+		String output = "";
+		
+		for (int i = 0; i < indeks; i++) {
+			output += this.innleggtabell[i].toString();
+		}
 		
 		return output;
-		
 	}
 
 	// valgfrie oppgaver nedenfor

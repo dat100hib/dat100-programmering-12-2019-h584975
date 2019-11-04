@@ -74,13 +74,13 @@ public abstract class Innlegg {
 	
 	public boolean erLik(Innlegg innlegg) {
 		
-		boolean erLik = false;
+		boolean erlik = false;
 		
 		if (this.id == innlegg.id) {
-			erLik = true;
+			erlik = true;
 		}
 
-		return erLik;
+		return erlik;
 	}
 	
 	@Override
