@@ -42,10 +42,10 @@ public class Blogg {
 
 		int indeks = -1;
 		
-		for (int i = 0; i < this.innleggtabell.length; i++) {
+		for (int i = 0; i < this.nesteledig; i++) {
 			if (innleggtabell[i].erLik(innlegg)) {
 				indeks = i;
-				i = this.innleggtabell.length;
+				i = nesteledig;
 			}
 		}
 		
@@ -56,11 +56,8 @@ public class Blogg {
 		
 		boolean finnes = false;
 		
-		for (int i = 0; i < this.innleggtabell.length; i++) {
-			if (innleggtabell[i].erLik(innlegg)) {
-				finnes = true;
-				i = this.innleggtabell.length;
-			}
+		if (finnInnlegg(innlegg) >= 0) {
+			finnes = true;
 		}
 		
 		return finnes;
@@ -83,7 +80,7 @@ public class Blogg {
 		
 		boolean lagtinn = false;
 		
-		if (ledigPlass()) {
+		if (!finnes(innlegg) && ledigPlass()) {
 			innleggtabell[nesteledig] = innlegg;
 			lagtinn = true;
 			this.nesteledig = nesteledig + 1;

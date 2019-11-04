@@ -7,7 +7,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		Blogg samling = new Blogg(1);
+		Blogg samling = new Blogg(2);
 		
 		Tekst test = new Tekst(1,"Oliver","2019","HEI");
 		Tekst test2 = new Tekst(2,"Oliver","2019","HEI");
