@@ -94,7 +94,9 @@ public abstract class Innlegg {
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		String h2 = "<h2>" + this.bruker + "@" + this.dato + " [" + this.likes + "]" + "<h2>\n";
+		String p1 = "<p>DAT100 Oppgave 6<p>\n";
+		
 				
 	}
 }

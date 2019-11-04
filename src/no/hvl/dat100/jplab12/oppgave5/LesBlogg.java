@@ -24,7 +24,54 @@ public class LesBlogg {
 
 	public static Blogg les(String filnavn) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		Blogg samling = new Blogg();
+		int antall = 0;
+		int id = 0;
+		int likes = 0;
+		String bruker = "";
+		String dato = "";
+		String url = "";
+		String tekst = "";
+		Innlegg innlegg;
+		boolean bilde = false;
+				
+		try {
+			
+			Scanner leser = new Scanner(new File(MAPPE + filnavn));
+			
+			antall = Integer.parseInt(leser.nextLine());
+			samling = new Blogg(antall);
+			
+			for (int i = 0; i < antall; i++) {
+				
+				if (leser.nextLine().equals(BILDE)) {
+					bilde = true;
+				}
+				
+				id = Integer.parseInt(leser.nextLine());
+				bruker = leser.nextLine();
+				dato = leser.nextLine();
+				likes = Integer.parseInt(leser.nextLine());
+				tekst = leser.nextLine();
+				
+				if (bilde) {
+					url = leser.nextLine();
+					innlegg = new Bilde(id,bruker,dato,likes,tekst,url);
+				} else {
+					innlegg = new Tekst(id,bruker,dato,likes,tekst);
+				}
+				
+				samling.leggTil(innlegg);
+				
+				bilde = false;
+			}
+			
+			leser.close();
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("Fil ikke funnet");
+		}
 
+		return samling;
 	}
 }
