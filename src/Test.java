@@ -10,9 +10,11 @@ public class Test {
 		Blogg samling = new Blogg(1);
 		
 		Tekst test = new Tekst(1,"Oliver","2019","HEI");
+		Tekst test2 = new Tekst(2,"Oliver","2019","HEI");
+		Tekst test3 = new Tekst(3,"Oliver","2019","HEI");
 		
-		boolean test1 = samling.leggTil(test);
-		boolean test2 = samling.leggTil(test);
+		boolean inn1 = samling.leggTil(test);
+		boolean inn2 = samling.leggTil(test2);
 		
 		System.out.println("Antall objekt i tabell: " + samling.getAntall());
 		
@@ -22,8 +24,12 @@ public class Test {
 		
 		System.out.println();
 		
-		System.out.println("Lagt inn 1: " + test1);
-		System.out.println("Lagt inn 2: " + test2);
+		System.out.println("Lagt inn 1: " + inn1);
+		System.out.println("Lagt inn 2: " + inn2);
+		
+		System.out.println();
+		
+		System.out.println(samling.finnInnlegg(test3));
 		
 	}
 
